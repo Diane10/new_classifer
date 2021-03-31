@@ -15,12 +15,12 @@ data= pd.read_csv('https://raw.githubusercontent.com/Diane10/news_classifier/mai
 # front end elements of the web page 
 html_temp = """ 
 <div style ="background-color:yellow;padding:13px"> 
-<h1 style ="color:black;text-align:center;">Streamlit Loan Prediction ML App</h1> 
+<h1 style ="color:black;text-align:center;">Streamlit News Classifier App</h1> 
 </div> 
 """ 
 st.markdown(html_temp, unsafe_allow_html = True) 
 default_value_goes_here = ""
-Content = st.text_area("label goes here", default_value_goes_here)
+Content = st.text_area("Text", default_value_goes_here)
 result =""
 data= pd.read_csv('https://raw.githubusercontent.com/Diane10/news_classifier/main/All_combined_New_papers%20-%20Sheet1.csv')
 data["label"] = label_enc.fit_transform(data[["label"]])  
