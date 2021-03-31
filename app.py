@@ -22,35 +22,31 @@ st.markdown(html_temp, unsafe_allow_html = True)
 default_value_goes_here = ""
 Content = st.text_area("Text", default_value_goes_here)
 result =""
-data= pd.read_csv('https://raw.githubusercontent.com/Diane10/news_classifier/main/All_combined_New_papers%20-%20Sheet1.csv')
-data["label"] = label_enc.fit_transform(data[["label"]])  
-# when 'Predict' is clicked, make the prediction and store it 
+data= pd.read_csv('https://raw.githubusercontent.com/Diane10/capstone/main/result.csv')
+
 if st.button("Predict"): 
   pred = model.predict(tfid.transform([Content]))
   if pred==1:
     st.write('other(culture,celebreties,art)')   
     pred= int(pred)
-    data_pred = data.loc[(data['label'] == pred)]
-    st.dataframe(data_pred['source_url'].unique())
+    data_pred = data.loc[(data['pred_label'] == pred)]
+    st.markdown(data_pred['full_link'].unique())
   elif pred==0:
     st.write('business')
     term="business"
     pred= int(pred)
-    data_pred = data.loc[(data['label'] == pred)]
-    # result_df= data_pred[data_pred['source_url'].str.contains(term)]
-    st.dataframe(data_pred['source_url'].unique())
+    data_pred = data.loc[(data['pred_label'] == pred)]
+    st.markdown(data_pred['full_link'].unique())
   elif pred==2:
     st.write('politics') 
     pred= int(pred)
     term="pol"
     pred= int(pred)
-    data_pred = data.loc[(data['label'] == pred)]
-    # result_df= data_pred[data_pred['source_url'].str.contains(term)]
-    st.dataframe(data_pred['source_url'].unique())
+    data_pred = data.loc[(data['pred_label'] == pred)]
+    st.markdown(data_pred['full_link'].unique())
   elif pred==3:
     st.write('sport')
     pred= int(pred)
     term='sport'
-    data_pred = data.loc[(data['label'] == pred)]
-    # result_df= data_pred[data_pred['source_url'].str.contains(term)]
-    st.dataframe(data_pred['source_url'].unique())
+    data_pred = data.loc[(data['pred_label'] == pred)]
+    st.markdown(data_pred['full_link'].unique())
