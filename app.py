@@ -5,7 +5,6 @@ import streamlit as st
 import matplotlib.pyplot as plt 
 import matplotlib
 matplotlib.use('Agg')
-import seaborn as sns 
 import streamlit as st 
 from sklearn.ensemble import  AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.ensemble import VotingClassifier
