@@ -97,12 +97,12 @@ try:
     from enum import Enum
     from io import BytesIO, StringIO
     from typing import Union
- 
     import pandas as pd
     import streamlit as st
 except Exception as e:
     print(e)
 if st.sidebar.checkbox('NLP'):
+  st.image('https://d1m75rqqgidzqn.cloudfront.net/wp-data/2021/01/18170655/an-introduction-to-natural-language-processing-with-python-for-seos-5f3519eeb8368.png',use_column_width=True)
   st.subheader("Natural Language Processing")
   message =st.text_area("Enter text")
   blob = TextBlob(message)
@@ -134,8 +134,7 @@ if st.sidebar.checkbox('NLP'):
       if st.button("Analyse",key='20'):
           pos_tagged = nltk.pos_tag(nltk.word_tokenize(message))   
           st.write(pos_tagged) 
-    
-        
+            
   if st.checkbox("Text preprocessing"):
       selection = st.selectbox("Select type:", ("Lemmatizer", "PorterStemmer"))
       if st.button("Analyse",key="4"):
@@ -187,6 +186,7 @@ if st.sidebar.checkbox('NLP'):
               translated=blob.translate(to="zh")
               st.write(translated)
 if st.sidebar.checkbox('computer vision'):
+  st.image('https://i.pcmag.com/imagery/articles/061CyMCZV6G2sXUmreKHvXS-1..1581020108.jpg',use_column_width=True)
   st.subheader("Welcome to the object detector program") 
     
   st.markdown("Please enter the image file for recognition such as aeroplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck")
